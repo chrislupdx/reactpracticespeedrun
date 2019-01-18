@@ -27,7 +27,9 @@ class App extends Component {
       <div className="App">
         <Useroutput username={this.state.usernames[0].username} />
         <Useroutput username={this.state.usernames[1].username} > REDACTED </Useroutput>
-        <Userinput/>
+        <Userinput
+        click={this.eventHandler}
+        />
         <button onClick={this.eventHandler}>not in userinput</button>
       </div>
     );
