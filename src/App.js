@@ -5,32 +5,25 @@ import './App.css';
 
 class App extends Component {
   state = {
-    usernames : [
-      { username: 'never'},
-      { username: 'neinnn'},
-    ]
+      username: 'georgie',
   }
 
-  eventHandler = () => {
-    // console.log('here')
-    this.setState({
-      usernames : [
-        { username: 'GERALDO'},
-        { username: 'MAXINE'},
-      ]
-    })
-  };
+
+  alternateHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
 
 
   render() {
     return (
       <div className="App">
-        <Useroutput username={this.state.usernames[0].username} />
-        <Useroutput username={this.state.usernames[1].username} > REDACTED </Useroutput>
-        <Userinput
-        click={this.eventHandler}
+        <Useroutput username={this.state.username}
         />
-        <button onClick={this.eventHandler}>not in userinput</button>
+        <Useroutput username={this.state.username} > REDACTED </Useroutput>
+        <Userinput
+        changed={this.alternateHandler}
+        currentName={this.state.username}
+        />
       </div>
     );
   }
